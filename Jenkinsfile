@@ -49,8 +49,8 @@ pipeline {
           steps{
             echo 'Packaging vote app with docker'
             script{
-              docker.withRegistry('https://index.docker.io/v1/', 'dockerlogin') {
-                  def voteImage = docker.build("xxxxxx/vote:v-adb-${env.BUILD_ID}", "./vote")
+              docker.withRegistry('https://index.docker.io/v1/', 'dockerLogin') {
+                  def voteImage = docker.build("anasriva/vote:v-adb-${env.BUILD_ID}", "./vote")
                   voteImage.push()
                   voteImage.push("latest")
               }
